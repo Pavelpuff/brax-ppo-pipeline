@@ -221,7 +221,7 @@ __marimo__/
 *.swp
 
 # Data, Models & Checkpoints
-data/
+/data/
 datasets/
 weights/
 checkpoints/
