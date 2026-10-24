@@ -1,7 +1,10 @@
 """Brax environment factory with vectorization and auto-reset."""
+
 from brax import envs
 from brax.envs.wrappers.training import AutoResetWrapper, EpisodeWrapper, VmapWrapper
+
 from src.utils.config import PPOConfig
+
 
 def make_env(config: PPOConfig, num_envs: int | None = None) -> object:
     """Creates a vectorized, auto-resetting Brax environment."""
