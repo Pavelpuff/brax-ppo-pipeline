@@ -21,7 +21,7 @@ The model consists of several key modules designed to stabilize on-policy learni
 
 The agent optimizes a clipped surrogate objective function to prevent catastrophic policy degradation caused by excessively large weight updates. The final objective maximizes the expected return, minimizes the Value Function error ($L_{VF}$), and incentivizes exploration via an entropy bonus ($S$):
 
-$$L(\theta) = \hat{\mathbb{E}}_t \left[ \min\left( r_t(\theta)\hat{A}_t, \text{clip}(r_t(\theta), 1-\epsilon, 1+\epsilon)\hat{A}_t \right) - c_1 L_t^{VF} + c_2 S[\pi_\theta](s_t) \right]$$
+$$L(\theta) = \hat{\mathbb{E}}_t \left[ \min\left( r_t(\theta)\hat{A}_t, \text{clip}(r_t(\theta), 1-\epsilon, 1+\epsilon)\hat{A}_t \right) - c_1 L_t^{\text{VF}} + c_2 S(\pi_\theta) \right]$$
 
 where $r_t(\theta) = \frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{old}}(a_t|s_t)}$ is the probability ratio between the current and old policies, and $c_1$, $c_2$ correspond to the `vf_coef` and `ent_coef` hyperparameters.
 
